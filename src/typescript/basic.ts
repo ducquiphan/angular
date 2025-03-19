@@ -16,3 +16,23 @@ function add(a: number, b: number) {
 let result = add(3, 5);
 
 let isInstructor: boolean = false;
+
+
+// More complex types
+let hobbies: string[];
+hobbies = ['Sport', 'Cooking'];
+hobbies.push('Singing');
+
+let person: {
+  name: string;
+  age: number;
+};
+person = {
+  name: 'James',
+  age: 25,
+};
+
+let people: {
+  name: string;
+  age: number;
+}[];
