@@ -23,19 +23,18 @@ let hobbies: string[];
 hobbies = ['Sport', 'Cooking'];
 hobbies.push('Singing');
 
-let person: {
+type Person = {
   name: string;
   age: number;
 };
+
+let person: Person;
 person = {
   name: 'James',
   age: 25,
 };
 
-let people: {
-  name: string;
-  age: number;
-}[];
+let people: Person[];
 
 // Type inference
 let course: string | string [] | number = 'Angular - The Complete Guide';
