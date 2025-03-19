@@ -36,3 +36,8 @@ let people: {
   name: string;
   age: number;
 }[];
+
+// Type inference
+let course = 'Angular - The Complete Guide';
+
+// course = 12345;
