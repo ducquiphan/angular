@@ -38,6 +38,6 @@ let people: {
 }[];
 
 // Type inference
-let course = 'Angular - The Complete Guide';
+let course: string | string [] | number = 'Angular - The Complete Guide';
 
-// course = 12345;
+course = 12345;
