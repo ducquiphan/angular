@@ -118,3 +118,30 @@ class Student {
 
 const student = new Student('Duc', 'Phan', 'phanquiduc@gmail.com', 25, ['Angular']);
 student.enroll('Java');
+
+interface Human {
+  firstName: string;
+  lastName: string;
+  age: number;
+  greet: () => void;
+}
+
+let duc: Human;
+duc = {
+  firstName: 'Duc',
+  lastName: 'Phan',
+  age: 25,
+  greet() {
+    console.log('Greet');
+  },
+};
+
+class Instructor implements Human {
+  firstName: string;
+  lastName: string;
+  age: number;
+
+  greet(): void {
+  }
+
+}
