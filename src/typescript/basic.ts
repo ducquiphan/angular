@@ -40,3 +40,12 @@ let people: Person[];
 let course: string | string [] | number = 'Angular - The Complete Guide';
 
 course = 12345;
+
+// Functions & Type
+function subtract(a: number, b: number): number {
+  return a - b;
+}
+
+function print(value: any): void {
+  console.log(value);
+}
