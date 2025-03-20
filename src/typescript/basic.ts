@@ -49,3 +49,13 @@ function subtract(a: number, b: number): number {
 function print(value: any): void {
   console.log(value);
 }
+
+// Generics
+function insertAtBeginning<T>(array: T[], value: T) {
+  return [value, ...array];
+}
+
+const demoArray = [1, 2, 3, 4];
+const updatedArray = insertAtBeginning(demoArray, -1);
+const stringArray = insertAtBeginning(['a', 'b', 'c'], 'd');
+// updatedArray[0].split(''); // this can be done due to using any but cannot be done using Generics
