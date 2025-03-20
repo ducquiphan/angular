@@ -58,4 +58,63 @@ function insertAtBeginning<T>(array: T[], value: T) {
 const demoArray = [1, 2, 3, 4];
 const updatedArray = insertAtBeginning(demoArray, -1);
 const stringArray = insertAtBeginning(['a', 'b', 'c'], 'd');
+
 // updatedArray[0].split(''); // this can be done due to using any but cannot be done using Generics
+
+class Student {
+  constructor(
+    private _firstName: string | null = 'Duc',
+    private _lastName: string,
+    private _email: string,
+    private _age: number,
+    private _courses: string[],
+  ) {
+  }
+
+  get firstName(): string | null {
+    return this._firstName;
+  }
+
+  set firstName(value: string | null) {
+    this._firstName = value;
+  }
+
+  get lastName(): string {
+    return this._lastName;
+  }
+
+  set lastName(value: string) {
+    this._lastName = value;
+  }
+
+  get email(): string {
+    return this._email;
+  }
+
+  set email(value: string) {
+    this._email = value;
+  }
+
+  get age(): number {
+    return this._age;
+  }
+
+  set age(value: number) {
+    this._age = value;
+  }
+
+  get courses(): string[] {
+    return this._courses;
+  }
+
+  set courses(value: string[]) {
+    this._courses = value;
+  }
+
+  enroll(courseName: string) {
+    this._courses.push(courseName);
+  }
+}
+
+const student = new Student('Duc', 'Phan', 'phanquiduc@gmail.com', 25, ['Angular']);
+student.enroll('Java');
