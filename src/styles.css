@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "ng-zorro-antd/ng-zorro-antd.min.css";
-@import "node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "bootstrap/dist/css/bootstrap.min.css";
 
 * {
     box-sizing: border-box;
@@ -10,10 +10,4 @@
 
 body {
     background: radial-gradient(circle at top left, #181023, #0b0519);
-}
-
-
-.w-9\/10 {
-    width: calc(9 / 10 * 100%);
-    margin: 0 auto 2rem auto;
 }
