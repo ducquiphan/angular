@@ -1,0 +1,29 @@
+div {
+    /*border-radius: 6px;*/
+    /*box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1)*/
+
+}
+
+button {
+    font: inherit;
+    min-width: 10rem;
+    padding: 0.35rem 0.5rem;
+    background-color: #433352;
+}
+
+button:hover,
+button:active,
+.active {
+    color: #150722;
+    background-color: #9965dd;
+}
+
+img {
+    width: 2rem;
+    border-radius: 50%;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+}
+
+span {
+    font-size: 0.8rem;
+}

@@ -3,7 +3,6 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 
 * {
-    box-sizing: border-box;
     color: #c3b3d8 !important;
 }
 
