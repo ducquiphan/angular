@@ -1,7 +1,17 @@
 import {Component, computed, input, output} from '@angular/core';
-import {DUMMY_USERS} from '../../dummy-users';
 
-const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
+// const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
+// type User = {
+// 	id: string;
+// 	name: string;
+// 	avatar: string;
+// }
+
+interface User {
+	id: string;
+	name: string;
+	avatar: string;
+}
 
 @Component({
 	selector: 'app-user',
@@ -15,11 +25,7 @@ export class UserComponent {
 	// avatar = input.required<string>(); // Telling Angular that this is required. Required value cannot be set an initial value
 	// name = input<string>('');
 	// id = input.required<string>();
-	user = input.required<{
-		id: string;
-		name: string;
-		avatar: string;
-	}>();
+	user = input.required<User>();
 	imagePath = computed(() => {
 		return 'users/' + this.user().avatar;
 	});
