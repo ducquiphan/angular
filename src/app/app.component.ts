@@ -13,11 +13,15 @@ import {UserComponent} from './pages/user/user.component';
 export class AppComponent {
 	title = 'angular18-course-pj';
 	users = DUMMY_USERS;
-	selectedUser = signal(DUMMY_USERS[0]);
+	selectedUser = signal<{
+		id: string;
+		name: string;
+		avatar: string;
+	} | undefined>(DUMMY_USERS[0]);
 
 	onSelectUser(id: string) {
 		console.log('Selected use with id: ' + id);
-		this.selectedUser.set(this.users.find(user => user.id===id)!);
+		this.selectedUser.set(this.users.find(user => user.id===id));
 	}
 
 
