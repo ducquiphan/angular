@@ -1,5 +1,5 @@
 <div class="overflow-hidden">
-	<button (click)="onSelectUser()" class="w-100 text-start">
+	<button (click)="onSelectUser()" [class.active]="selected()" class="w-100 text-start">
 		<img [alt]="user().name" [src]="imagePath()" class="object-fit-contain">
 		<span class="ms-3 m-0 p-0 fw-normal">{{ user().name }}</span>
 	</button>

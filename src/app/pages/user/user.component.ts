@@ -21,6 +21,7 @@ export class UserComponent {
 	// name = input<string>('');
 	// id = input.required<string>();
 	user = input.required<User>();
+	selected = input.required<boolean>();
 	imagePath = computed(() => {
 		return 'users/' + this.user().avatar;
 	});
