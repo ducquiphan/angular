@@ -12,11 +12,16 @@ const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
 export class UserComponent {
 	// @Input({required: true}) avatar!: string;
 	// @Input({required: true}) name!: string;
-	avatar = input.required<string>(); // Telling Angular that this is required. Required value cannot be set an initial value
-	name = input<string>('');
-	id = input.required<string>();
+	// avatar = input.required<string>(); // Telling Angular that this is required. Required value cannot be set an initial value
+	// name = input<string>('');
+	// id = input.required<string>();
+	user = input.required<{
+		id: string;
+		name: string;
+		avatar: string;
+	}>();
 	imagePath = computed(() => {
-		return 'users/' + this.avatar();
+		return 'users/' + this.user().avatar;
 	});
 	// @Output() selectUser = new EventEmitter();
 	selectUser = output<string>(); // Use this whenever you like, this code just to use when there is no decorator in the component, also this is
@@ -28,6 +33,6 @@ export class UserComponent {
 	// }
 
 	onSelectUser() {
-		return this.selectUser.emit(this.id());
+		return this.selectUser.emit(this.user().id);
 	}
 }
