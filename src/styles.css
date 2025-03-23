@@ -5,6 +5,10 @@ h1, h2, h3, h4, h5, h6 {
     color: #c3b3d8;
 }
 
+* {
+    transition: all 0.12s ease-in-out;
+}
+
 body {
     color: #c3b3d8 !important;
     background: radial-gradient(circle at top left, #181023, #0b0519);
