@@ -1,9 +1,11 @@
 <article>
 	<h2>
-		TASK TITLE
+		{{ task().title }}
 	</h2>
-	<time>TIME</time>
-	<p>SUMMARY</p>
+	<p>Due date:
+		<time>{{ Date.parse(task().dueDate) | date }}</time>
+	</p>
+	<p>{{ task().summary }}</p>
 	<p class="actions">
 		<button>Complete</button>
 	</p>

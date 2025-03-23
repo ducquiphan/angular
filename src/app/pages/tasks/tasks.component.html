@@ -1,7 +1,7 @@
 <section id="tasks">
 	<header class="d-flex align-items-start justify-content-between">
 		<h2 class="m-0">
-			{{ name() }}'s Task
+			{{ user().name }}'s Task
 		</h2>
 		<menu class="m-0 p-0">
 			<button>
@@ -10,14 +10,20 @@
 		</menu>
 	</header>
 	<ul class="d-flex overflow-auto flex-column p-0 list-unstyled">
-		<li>
-			<app-task></app-task>
-		</li>
-		<li>
-			<app-task></app-task>
-		</li>
-		<li>
-			<app-task></app-task>
-		</li>
+		<!-- 		@for (task of tasks; track task.id) { -->
+		<!-- 			@if (task.userId === user().id) { -->
+		<!-- 				<li> -->
+		<!-- 					<app-task [task]="task"></app-task> -->
+		<!-- 				</li> -->
+		<!-- 			} -->
+		<!-- 		} -->
+		@for (task of selectedUserTasks; track task.id) {
+			<li>
+				<app-task [task]="task"></app-task>
+			</li>
+		}
+		@if (selectedUserTasks.length == 0) {
+			<p>This user has no task to be done!</p>
+		}
 	</ul>
 </section>
