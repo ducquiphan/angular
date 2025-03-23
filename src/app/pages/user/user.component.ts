@@ -1,4 +1,4 @@
-import {Component, computed, input} from '@angular/core';
+import {Component, computed, EventEmitter, input, Output} from '@angular/core';
 import {DUMMY_USERS} from '../../dummy-users';
 
 const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
@@ -14,9 +14,11 @@ export class UserComponent {
 	// @Input({required: true}) name!: string;
 	avatar = input.required<string>(); // Telling Angular that this is required. Required value cannot be set an initial value
 	name = input<string>('');
+	id = input.required<string>();
 	imagePath = computed(() => {
 		return 'users/' + this.avatar();
 	});
+	@Output() selectUser = new EventEmitter();
 
 
 	// get imagePath() {
@@ -24,6 +26,6 @@ export class UserComponent {
 	// }
 
 	onSelectUser() {
-
+		this.selectUser.emit(this.id());
 	}
 }

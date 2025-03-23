@@ -13,5 +13,7 @@ export class AppComponent {
 	title = 'angular18-course-pj';
 	users = DUMMY_USERS;
 
-
+	onSelectUser(id: string) {
+		console.log('Selected use with id: ' + id);
+	}
 }
