@@ -1,4 +1,4 @@
-import {Component, computed, EventEmitter, input, Output} from '@angular/core';
+import {Component, computed, input, output} from '@angular/core';
 import {DUMMY_USERS} from '../../dummy-users';
 
 const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
@@ -18,7 +18,9 @@ export class UserComponent {
 	imagePath = computed(() => {
 		return 'users/' + this.avatar();
 	});
-	@Output() selectUser = new EventEmitter();
+	// @Output() selectUser = new EventEmitter();
+	selectUser = output<string>(); // Use this whenever you like, this code just to use when there is no decorator in the component, also this is
+	// shorter
 
 
 	// get imagePath() {
@@ -26,6 +28,6 @@ export class UserComponent {
 	// }
 
 	onSelectUser() {
-		this.selectUser.emit(this.id());
+		return this.selectUser.emit(this.id());
 	}
 }
