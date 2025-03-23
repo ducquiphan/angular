@@ -1,4 +1,5 @@
 import {Component, computed, input, output} from '@angular/core';
+import {User} from '../../entity/user';
 
 // const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
 // type User = {
@@ -6,12 +7,6 @@ import {Component, computed, input, output} from '@angular/core';
 // 	name: string;
 // 	avatar: string;
 // }
-
-interface User {
-	id: string;
-	name: string;
-	avatar: string;
-}
 
 @Component({
 	selector: 'app-user',

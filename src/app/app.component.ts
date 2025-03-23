@@ -1,5 +1,6 @@
 import {Component, signal} from '@angular/core';
 import {DUMMY_USERS} from './dummy-users';
+import {User} from './entity/user';
 import {HeaderComponent} from './pages/header/header.component';
 import {TasksComponent} from './pages/tasks/tasks.component';
 import {UserComponent} from './pages/user/user.component';
@@ -14,11 +15,7 @@ export class AppComponent {
 	title = 'angular18-course-pj';
 	users = DUMMY_USERS;
 	// selectedUserId = signal<string>(DUMMY_USERS[0].id);
-	selectedUser = signal<{
-		id: string;
-		name: string;
-		avatar: string;
-	} | undefined>(DUMMY_USERS[0]);
+	selectedUser = signal<User | undefined>(undefined);
 
 	// get selectedUser() {
 	// 	return this.users.find(user => user.id===this.selectedUserId());
