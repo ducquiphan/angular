@@ -1,6 +1,6 @@
 import {DatePipe} from '@angular/common';
 import {Component, input} from '@angular/core';
-import {Task} from '../../../entity/task';
+import {Task} from '../../../model/task';
 
 @Component({
 	selector: 'app-task',

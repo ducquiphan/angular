@@ -1,6 +1,6 @@
 import {Component, input} from '@angular/core';
-import {Task} from '../../entity/task';
-import {User} from '../../entity/user';
+import {Task} from '../../model/task';
+import {User} from '../../model/user';
 import {TaskComponent} from './task/task.component';
 
 
