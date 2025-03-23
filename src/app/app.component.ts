@@ -13,14 +13,20 @@ import {UserComponent} from './pages/user/user.component';
 export class AppComponent {
 	title = 'angular18-course-pj';
 	users = DUMMY_USERS;
+	// selectedUserId = signal<string>(DUMMY_USERS[0].id);
 	selectedUser = signal<{
 		id: string;
 		name: string;
 		avatar: string;
 	} | undefined>(DUMMY_USERS[0]);
 
+	// get selectedUser() {
+	// 	return this.users.find(user => user.id===this.selectedUserId());
+	// }
+
 	onSelectUser(id: string) {
 		console.log('Selected use with id: ' + id);
+		// this.selectedUserId.set(id);
 		this.selectedUser.set(this.users.find(user => user.id===id));
 	}
 
