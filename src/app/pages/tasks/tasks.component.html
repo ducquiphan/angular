@@ -1,1 +1,23 @@
-<h2>{{ name() }}</h2>
+<section id="tasks">
+	<header class="d-flex align-items-start justify-content-between">
+		<h2 class="m-0">
+			{{ name() }}'s Task
+		</h2>
+		<menu class="m-0 p-0">
+			<button>
+				Add Task
+			</button>
+		</menu>
+	</header>
+	<ul class="d-flex overflow-auto flex-column p-0 list-unstyled">
+		<li>
+			<app-task></app-task>
+		</li>
+		<li>
+			<app-task></app-task>
+		</li>
+		<li>
+			<app-task></app-task>
+		</li>
+	</ul>
+</section>
