@@ -1,11 +1,9 @@
 import {Component, input, output} from '@angular/core';
-import {NzButtonComponent} from 'ng-zorro-antd/button';
 import {NzModalModule} from 'ng-zorro-antd/modal';
 
 @Component({
 	selector: 'app-new-task',
-	imports: [NzModalModule,
-		NzButtonComponent],
+	imports: [NzModalModule],
 	templateUrl: './new-task.component.html',
 })
 export class NewTaskComponent {
