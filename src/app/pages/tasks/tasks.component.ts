@@ -1,6 +1,7 @@
 import {Component, input, signal} from '@angular/core';
 import {Task} from '../../model/task';
 import {User} from '../../model/user';
+import {NewTaskComponent} from './new-task/new-task.component';
 import {TaskComponent} from './task/task.component';
 
 
@@ -34,6 +35,8 @@ const dummyTasks: Task[] = [
 	selector: 'app-tasks',
 	imports: [
 		TaskComponent,
+		NewTaskComponent,
+
 	],
 	templateUrl: './tasks.component.html',
 	styleUrl: './tasks.component.css',
@@ -42,12 +45,17 @@ export class TasksComponent {
 	// @Input() name?: string;
 	user = input.required<User>();
 	tasks = signal(dummyTasks);
-	
+	isAddingTask = signal(false);
+
 	get selectedUserTasks() {
 		return this.tasks().filter(task => task.userId === this.user().id);
 	}
 
 	onCompleteTask(id: string) {
 		this.tasks.set(this.tasks().filter(task => task.id !== id));
+	}
+
+	onAddTask() {
+		this.isAddingTask.set(!this.isAddingTask());
 	}
 }

@@ -1,10 +1,14 @@
+@if (isAddingTask()) {
+	<app-new-task></app-new-task>
+}
+
 <section id="tasks">
 	<header class="d-flex align-items-start justify-content-between">
 		<h2 class="m-0">
 			{{ user().name }}'s Task
 		</h2>
 		<menu class="m-0 p-0">
-			<button>
+			<button (click)="onAddTask()">
 				Add Task
 			</button>
 		</menu>
