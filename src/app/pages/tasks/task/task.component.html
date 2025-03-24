@@ -3,10 +3,10 @@
 		{{ task().title }}
 	</h2>
 	<p>Due date:
-		<time>{{ Date.parse(task().dueDate) | date }}</time>
+		<time>{{ task().dueDate| date }}</time>
 	</p>
 	<p>{{ task().summary }}</p>
 	<p class="actions">
-		<button>Complete</button>
+		<button (click)="onCompleteTask()">Complete</button>
 	</p>
 </article>

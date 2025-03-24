@@ -1,5 +1,5 @@
 import {DatePipe} from '@angular/common';
-import {Component, input} from '@angular/core';
+import {Component, input, output} from '@angular/core';
 import {Task} from '../../../model/task';
 
 @Component({
@@ -12,5 +12,9 @@ import {Task} from '../../../model/task';
 })
 export class TaskComponent {
 	task = input.required<Task>();
-	protected readonly Date = Date;
+	completeTask = output<string>();
+
+	onCompleteTask() {
+		return this.completeTask.emit(this.task().id);
+	}
 }

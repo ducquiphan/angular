@@ -1,4 +1,4 @@
-import {Component, input} from '@angular/core';
+import {Component, input, signal} from '@angular/core';
 import {Task} from '../../model/task';
 import {User} from '../../model/user';
 import {TaskComponent} from './task/task.component';
@@ -41,9 +41,13 @@ const dummyTasks: Task[] = [
 export class TasksComponent {
 	// @Input() name?: string;
 	user = input.required<User>();
-	tasks = dummyTasks;
-
+	tasks = signal(dummyTasks);
+	
 	get selectedUserTasks() {
-		return this.tasks.filter(task => task.userId===this.user().id);
+		return this.tasks().filter(task => task.userId === this.user().id);
+	}
+
+	onCompleteTask(id: string) {
+		this.tasks.set(this.tasks().filter(task => task.id !== id));
 	}
 }
