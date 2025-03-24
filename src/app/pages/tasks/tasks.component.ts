@@ -1,4 +1,6 @@
 import {Component, input, signal} from '@angular/core';
+import {NzButtonComponent} from 'ng-zorro-antd/button';
+import {NzModalModule} from 'ng-zorro-antd/modal';
 import {Task} from '../../model/task';
 import {User} from '../../model/user';
 import {NewTaskComponent} from './new-task/new-task.component';
@@ -36,7 +38,8 @@ const dummyTasks: Task[] = [
 	imports: [
 		TaskComponent,
 		NewTaskComponent,
-
+		NzButtonComponent,
+		NzModalModule,
 	],
 	templateUrl: './tasks.component.html',
 	styleUrl: './tasks.component.css',
@@ -55,7 +58,11 @@ export class TasksComponent {
 		this.tasks.set(this.tasks().filter(task => task.id !== id));
 	}
 
-	onAddTask() {
+	showModal() {
 		this.isAddingTask.set(!this.isAddingTask());
+	}
+
+	onCloseModal(isClosed: boolean) {
+		this.isAddingTask.set(isClosed);
 	}
 }

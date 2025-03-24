@@ -1,1 +1,7 @@
-<p>new-task works!</p>
+<nz-modal (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()" [(nzVisible)]="isVisible" nzTitle="The first Modal">
+	<ng-container *nzModalContent>
+		<p>Content one</p>
+		<p>Content two</p>
+		<p>Content three</p>
+	</ng-container>
+</nz-modal>
