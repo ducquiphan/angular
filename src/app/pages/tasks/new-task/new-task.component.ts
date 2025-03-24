@@ -1,4 +1,4 @@
-import {Component, output} from '@angular/core';
+import {Component, model, output} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {NzFormModule} from 'ng-zorro-antd/form';
 import {NzInputDirective, NzTextareaCountComponent} from 'ng-zorro-antd/input';
@@ -16,8 +16,9 @@ import {NzInputDirective, NzTextareaCountComponent} from 'ng-zorro-antd/input';
 })
 export class NewTaskComponent {
 	cancel = output<void>();
-	title = '';
+	title = model(''); // we should use model instead of signal
 	summary = '';
+	date = '';
 
 	onCancel() {
 		this.cancel.emit();
