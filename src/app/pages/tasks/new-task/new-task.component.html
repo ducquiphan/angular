@@ -7,7 +7,7 @@
 				Title
 			</nz-form-label>
 			<nz-form-control>
-				<input id="title" name="title" nz-input type="text"/>
+				<input [(ngModel)]="title" id="title" name="title" nz-input type="text"/>
 			</nz-form-control>
 		</nz-form-item>
 		<nz-form-item>
@@ -16,7 +16,7 @@
 			</nz-form-label>
 			<nz-form-control>
 				<nz-textarea-count [nzMaxCharacterCount]="2000">
-					<textarea id="summary" name="summary" nz-input nz-row="5"></textarea>
+					<textarea [(ngModel)]="summary" id="summary" name="summary" nz-input nz-row="5"></textarea>
 				</nz-textarea-count>
 
 			</nz-form-control>
