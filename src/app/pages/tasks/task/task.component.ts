@@ -1,6 +1,6 @@
 import {DatePipe} from '@angular/common';
 import {Component, input, output} from '@angular/core';
-import {Task} from '../../../model/task';
+import {Task} from '../../../models/task';
 
 @Component({
 	selector: 'app-task',

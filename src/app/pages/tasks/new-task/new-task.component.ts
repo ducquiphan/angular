@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, output} from '@angular/core';
 import {NzFormModule} from 'ng-zorro-antd/form';
 import {NzInputDirective, NzTextareaCountComponent} from 'ng-zorro-antd/input';
 
@@ -13,5 +13,13 @@ import {NzInputDirective, NzTextareaCountComponent} from 'ng-zorro-antd/input';
 	styleUrl: './new-task.component.css',
 })
 export class NewTaskComponent {
+	cancel = output<void>();
 
+	onCancel() {
+		this.cancel.emit();
+	}
+
+	onCreate() {
+
+	}
 }

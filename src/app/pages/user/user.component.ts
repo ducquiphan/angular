@@ -1,5 +1,5 @@
 import {Component, computed, input, output} from '@angular/core';
-import {User} from '../../model/user';
+import {User} from '../../models/user';
 
 // const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
 // type User = {

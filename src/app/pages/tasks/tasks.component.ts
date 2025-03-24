@@ -1,7 +1,8 @@
 import {Component, input, signal} from '@angular/core';
 import {NzModalModule} from 'ng-zorro-antd/modal';
-import {Task} from '../../model/task';
-import {User} from '../../model/user';
+import {fadeInOut} from '../../commons/animations/in-out-animation';
+import {Task} from '../../models/task';
+import {User} from '../../models/user';
 import {NewTaskComponent} from './new-task/new-task.component';
 import {TaskComponent} from './task/task.component';
 
@@ -41,6 +42,7 @@ const dummyTasks: Task[] = [
 	],
 	templateUrl: './tasks.component.html',
 	styleUrl: './tasks.component.css',
+	animations: [fadeInOut],
 })
 export class TasksComponent {
 	// @Input() name?: string;
@@ -59,5 +61,9 @@ export class TasksComponent {
 
 	showAddTask() {
 		this.isAddingTask.set(!this.isAddingTask());
+	}
+
+	onCancelAddTask() {
+		this.isAddingTask.set(false);
 	}
 }
