@@ -1,5 +1,4 @@
 import {Component, input, signal} from '@angular/core';
-import {NzButtonComponent} from 'ng-zorro-antd/button';
 import {NzModalModule} from 'ng-zorro-antd/modal';
 import {Task} from '../../model/task';
 import {User} from '../../model/user';
@@ -38,7 +37,6 @@ const dummyTasks: Task[] = [
 	imports: [
 		TaskComponent,
 		NewTaskComponent,
-		NzButtonComponent,
 		NzModalModule,
 	],
 	templateUrl: './tasks.component.html',
@@ -47,8 +45,8 @@ const dummyTasks: Task[] = [
 export class TasksComponent {
 	// @Input() name?: string;
 	user = input.required<User>();
-	tasks = signal(dummyTasks);
-	isAddingTask = signal(false);
+	tasks = signal<Task[]>(dummyTasks);
+	isAddingTask = signal<boolean>(false);
 
 	get selectedUserTasks() {
 		return this.tasks().filter(task => task.userId === this.user().id);
@@ -58,11 +56,8 @@ export class TasksComponent {
 		this.tasks.set(this.tasks().filter(task => task.id !== id));
 	}
 
-	showModal() {
-		this.isAddingTask.set(!this.isAddingTask());
-	}
 
-	onCloseModal(isClosed: boolean) {
-		this.isAddingTask.set(isClosed);
+	showAddTask() {
+		this.isAddingTask.set(!this.isAddingTask());
 	}
 }

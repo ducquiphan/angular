@@ -1,7 +1,40 @@
-<nz-modal (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()" [(nzVisible)]="isVisible" nzTitle="The first Modal">
-	<ng-container *nzModalContent>
-		<p>Content one</p>
-		<p>Content two</p>
-		<p>Content three</p>
-	</ng-container>
-</nz-modal>
+<div class="backdrop"></div>
+<dialog open>
+	<h2>Add Task</h2>
+	<form nz-form>
+		<nz-form-item>
+			<nz-form-label class="font-color" nzFor="title">
+				Title
+			</nz-form-label>
+			<nz-form-control>
+				<input id="title" name="title" nz-input type="text"/>
+			</nz-form-control>
+		</nz-form-item>
+		<nz-form-item>
+			<nz-form-label nzFor="summary">
+				Summary
+			</nz-form-label>
+			<nz-form-control>
+				<nz-textarea-count [nzMaxCharacterCount]="2000">
+					<textarea id="summary" name="summary" nz-input nz-row="5"></textarea>
+				</nz-textarea-count>
+
+			</nz-form-control>
+		</nz-form-item>
+		<nz-form-item>
+			<nz-form-label nzFor="due-date">
+				Due Date
+			</nz-form-label>
+			<nz-form-control>
+				<input id="due-date" name="due-date" nz-input type="date"/>
+			</nz-form-control>
+		</nz-form-item>
+		<p class="actions">
+
+		</p>
+		<nz-form-item class="actions">
+			<button type="button">Cancel</button>
+			<button type="submit">Create</button>
+		</nz-form-item>
+	</form>
+</dialog>

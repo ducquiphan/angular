@@ -1,23 +1,17 @@
-import {Component, input, output} from '@angular/core';
-import {NzModalModule} from 'ng-zorro-antd/modal';
+import {Component} from '@angular/core';
+import {NzFormModule} from 'ng-zorro-antd/form';
+import {NzInputDirective, NzTextareaCountComponent} from 'ng-zorro-antd/input';
 
 @Component({
 	selector: 'app-new-task',
-	imports: [NzModalModule],
+	imports: [
+		NzFormModule,
+		NzInputDirective,
+		NzTextareaCountComponent,
+	],
 	templateUrl: './new-task.component.html',
+	styleUrl: './new-task.component.css',
 })
 export class NewTaskComponent {
-	isVisible = input<boolean>(false);
-	// isVisible = this.isVisibleInput();
-	isClosed = output<boolean>();
 
-	handleOk(): void {
-		console.log('Button ok clicked!');
-		return this.isClosed.emit(false);
-	}
-
-	handleCancel(): void {
-		console.log('Button cancel clicked!');
-		return this.isClosed.emit(false);
-	}
 }

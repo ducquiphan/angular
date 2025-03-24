@@ -1,12 +1,13 @@
-<app-new-task (isClosed)="onCloseModal($event)" [isVisible]="isAddingTask()"></app-new-task>
-
+@if (isAddingTask()) {
+	<app-new-task></app-new-task>
+}
 <section id="tasks">
 	<header class="d-flex align-items-start justify-content-between">
 		<h2 class="m-0">
 			{{ user().name }}'s Task
 		</h2>
 		<menu class="m-0 p-0">
-			<button (click)="showModal()" [nzType]="'primary'" nz-button><span>Add Task</span></button>
+			<button (click)="showAddTask()"><span>Add Task</span></button>
 		</menu>
 	</header>
 	<ul class="d-flex overflow-auto flex-column p-0 list-unstyled">
