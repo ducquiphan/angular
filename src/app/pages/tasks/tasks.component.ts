@@ -1,7 +1,7 @@
 import {Component, input, signal} from '@angular/core';
 import {NzModalModule} from 'ng-zorro-antd/modal';
 import {fadeInOut} from '../../commons/animations/in-out-animation';
-import {Task} from '../../models/task';
+import {type Task} from '../../models/task';
 import {User} from '../../models/user';
 import {NewTaskComponent} from './new-task/new-task.component';
 import {TaskComponent} from './task/task.component';
@@ -65,5 +65,14 @@ export class TasksComponent {
 
 	onCancelAddTask() {
 		this.isAddingTask.set(false);
+	}
+
+	onAddTask(newTask: Task) {
+		newTask.id = new Date().getTime().toString();
+		newTask.userId = this.user().id;
+		this.tasks.update(currentTasks => [...currentTasks, newTask]);
+		this.isAddingTask.set(false);
+		console.log('In onAddTask(newTask: Task)');
+		console.log(this.tasks());
 	}
 }

@@ -1,5 +1,5 @@
 @if (isAddingTask()) {
-	<app-new-task (cancel)="onCancelAddTask()" @fadeInOut></app-new-task>
+	<app-new-task (cancel)="onCancelAddTask()" (add)="onAddTask($event)" @fadeInOut></app-new-task>
 }
 <section id="tasks">
 	<header class="d-flex align-items-start justify-content-between">
