@@ -1,11 +1,13 @@
 import {DatePipe} from '@angular/common';
 import {Component, input, output} from '@angular/core';
 import {Task} from '../../../models/task';
+import {CardComponent} from '../../shared/card/card.component';
 
 @Component({
 	selector: 'app-task',
 	imports: [
 		DatePipe,
+		CardComponent,
 	],
 	templateUrl: './task.component.html',
 	styleUrl: './task.component.css',
