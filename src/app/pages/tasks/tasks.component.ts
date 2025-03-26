@@ -1,37 +1,10 @@
 import {Component, input, signal} from '@angular/core';
 import {NzModalModule} from 'ng-zorro-antd/modal';
 import {fadeInOut} from '../../commons/animations/in-out-animation';
-import {type Task} from '../../models/task';
 import {User} from '../../models/user';
+import {TaskService} from '../../services/task.service';
 import {NewTaskComponent} from './new-task/new-task.component';
 import {TaskComponent} from './task/task.component';
-
-
-const dummyTasks: Task[] = [
-	{
-		id: 't1',
-		userId: 'u1',
-		title: 'Master Angular',
-		summary:
-				'Learn all the basic and advanced features of Angular & how to apply them.',
-		dueDate: '2025-12-31',
-	},
-	{
-		id: 't2',
-		userId: 'u3',
-		title: 'Build first prototype',
-		summary: 'Build a first prototype of the online shop website',
-		dueDate: '2024-05-31',
-	},
-	{
-		id: 't3',
-		userId: 'u3',
-		title: 'Prepare issue template',
-		summary:
-				'Prepare and describe an issue template which will help with project management',
-		dueDate: '2024-06-15',
-	},
-];
 
 @Component({
 	selector: 'app-tasks',
@@ -47,32 +20,21 @@ const dummyTasks: Task[] = [
 export class TasksComponent {
 	// @Input() name?: string;
 	user = input.required<User>();
-	tasks = signal<Task[]>(dummyTasks);
+	// tasks = signal<Task[]>(dummyTasks);
 	isAddingTask = signal<boolean>(false);
 
+	constructor(private _taskService: TaskService) {
+	}
+
 	get selectedUserTasks() {
-		return this.tasks().filter(task => task.userId === this.user().id);
+		return this._taskService.getUserTasks(this.user().id);
 	}
-
-	onCompleteTask(id: string) {
-		this.tasks.set(this.tasks().filter(task => task.id !== id));
-	}
-
 
 	showAddTask() {
-		this.isAddingTask.set(!this.isAddingTask());
+		this.isAddingTask.set(true);
 	}
 
-	onCancelAddTask() {
+	onCloseAddTask() {
 		this.isAddingTask.set(false);
-	}
-
-	onAddTask(newTask: Task) {
-		newTask.id = new Date().getTime().toString();
-		newTask.userId = this.user().id;
-		this.tasks.update(currentTasks => [...currentTasks, newTask]);
-		this.isAddingTask.set(false);
-		console.log('In onAddTask(newTask: Task)');
-		console.log(this.tasks());
 	}
 }

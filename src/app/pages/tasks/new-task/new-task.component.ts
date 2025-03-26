@@ -1,8 +1,8 @@
-import {Component, model, output} from '@angular/core';
+import {Component, inject, input, model, output} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {NzFormModule} from 'ng-zorro-antd/form';
 import {NzInputDirective, NzTextareaCountComponent} from 'ng-zorro-antd/input';
-import {type Task} from '../../../models/task';
+import {TaskService} from '../../../services/task.service';
 
 @Component({
 	selector: 'app-new-task',
@@ -16,22 +16,23 @@ import {type Task} from '../../../models/task';
 	styleUrl: './new-task.component.css',
 })
 export class NewTaskComponent {
-	cancel = output<void>();
-	add = output<Task>();
+	userId = input.required<string>();
+	close = output<void>();
 	title = model(''); // we should use model instead of signal
 	summary = '';
 	date = '';
+	private _taskService = inject(TaskService);
 
 	onCancel() {
-		this.cancel.emit();
+		this.close.emit();
 	}
 
 	onSubmit() {
-		this.add.emit({
+		this._taskService.addTask({
 			title: this.title(),
 			summary: this.summary,
 			dueDate: this.date,
-		});
-		console.log('I executed:' + new Date().getTime().toString());
+		}, this.userId());
+		this.close.emit();
 	}
 }

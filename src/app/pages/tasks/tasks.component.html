@@ -1,5 +1,5 @@
 @if (isAddingTask()) {
-	<app-new-task (cancel)="onCancelAddTask()" (add)="onAddTask($event)" @fadeInOut></app-new-task>
+	<app-new-task [userId]="user().id" (close)="onCloseAddTask()" @fadeInOut></app-new-task>
 }
 <section id="tasks">
 	<header class="d-flex align-items-start justify-content-between">
@@ -20,11 +20,11 @@
 		<!-- 		} -->
 		@for (task of selectedUserTasks; track task.id) {
 			<li>
-				<app-task [task]="task" (completeTask)="onCompleteTask($event)" @fadeInOut></app-task>
+				<app-task [task]="task" @fadeInOut></app-task>
 			</li>
 		}
 		@if (selectedUserTasks.length == 0) {
-			<p>This user has no task to be done!</p>
+			<p @fadeInOut>This user has no task to be done!</p>
 		}
 	</ul>
 </section>
