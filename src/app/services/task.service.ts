@@ -6,6 +6,10 @@ import type {Task} from '../models/task';
 })
 export class TaskService {
 	constructor() {
+		const tasks = localStorage.getItem('tasks');
+		if (tasks) {
+			this._dummyTasks = <Task[]>JSON.parse(tasks);
+		}
 	}
 
 	private _dummyTasks: Task[] = [
@@ -51,10 +55,16 @@ export class TaskService {
 		newTask.userId = userId;
 		// this.tasks.update(currentTasks => [...currentTasks, newTask]);
 		this._dummyTasks.push(newTask);
+		this.savesTask();
 	}
 
 	removeTask(taskId: string) {
 		// this.tasks.set(this.tasks().filter(task => task.id !== id));
 		this._dummyTasks = this._dummyTasks.filter(task => task.id !== taskId);
+		this.savesTask();
+	}
+
+	private savesTask() {
+		localStorage.setItem('tasks', JSON.stringify(this._dummyTasks));
 	}
 }
