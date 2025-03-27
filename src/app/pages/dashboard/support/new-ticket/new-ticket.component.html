@@ -1,0 +1,24 @@
+<form nz-form>
+	<nz-form-item>
+		<nz-form-label nzFor="title">Title</nz-form-label>
+		<nz-form-control>
+			<input id="title" name="title" nz-input type="text">
+		</nz-form-control>
+
+	</nz-form-item>
+	<nz-form-item>
+		<nz-form-label nzFor="request">Request</nz-form-label>
+		<nz-form-control>
+			<nz-textarea-count [nzMaxCharacterCount]="2000">
+				<textarea id="request" name="request" nz-input placeholder="Write any thing" rows="3"></textarea>
+			</nz-textarea-count>
+		</nz-form-control>
+	</nz-form-item>
+	<nz-form-item>
+		<nz-form-control>
+			<button nz-button nzType="primary"><span>Submit</span>
+				<nz-icon nzTheme="outline" nzType="caret-right"/>
+			</button>
+		</nz-form-control>
+	</nz-form-item>
+</form>

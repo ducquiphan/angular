@@ -6,12 +6,14 @@ import {FormsModule} from '@angular/forms';
 import {provideAnimations} from '@angular/platform-browser/animations';
 import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
 import {provideRouter} from '@angular/router';
+import {IconDefinition} from '@ant-design/icons-angular';
+import {CaretLeftOutline} from '@ant-design/icons-angular/icons';
 import {en_US, provideNzI18n} from 'ng-zorro-antd/i18n';
 
 import {routes} from './app.routes';
 
 registerLocaleData(en);
-
+const icons: IconDefinition[] = [CaretLeftOutline];
 export const appConfig: ApplicationConfig = {
 	providers: [
 		provideZoneChangeDetection({eventCoalescing: true}),

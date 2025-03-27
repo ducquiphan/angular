@@ -18,5 +18,5 @@ import {HeaderComponent} from './pages/header/header.component';
 	],
 })
 export class AppComponent {
-
+	
 }
