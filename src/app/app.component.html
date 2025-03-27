@@ -1,15 +1,15 @@
 <app-header></app-header>
 <main>
 	<div id="dashboard">
-		<div class="dashboard-item">
+		<app-dashboard-item [icon]="{src: 'status.png', alt: 'A signal symbol'}" [title]="'Server Status'">
 			<app-server></app-server>
-		</div>
-		<div class="dashboard-item">
+		</app-dashboard-item>
+		<app-dashboard-item [icon]="{src: 'globe.png', alt: 'A globe'}" [title]="'Traffic'">
 			<app-traffic></app-traffic>
-		</div>
-		<div class="dashboard-item">
+		</app-dashboard-item>
+		<app-dashboard-item [icon]="{src: 'list.png', alt: 'A list of items'}" [title]="'Support'">
 			<app-support></app-support>
-		</div>
+		</app-dashboard-item>
 
 
 	</div>
