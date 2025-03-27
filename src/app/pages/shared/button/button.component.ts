@@ -10,6 +10,6 @@ import {NzIconDirective} from 'ng-zorro-antd/icon';
 	styleUrl: './button.component.css',
 })
 export class ButtonComponent {
-
+	
 
 }
