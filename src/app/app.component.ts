@@ -1,33 +1,41 @@
-import {Component, signal} from '@angular/core';
-import {fadeInOut} from './commons/animations/in-out-animation';
-import {DUMMY_USERS} from './dummy-users';
-import {User} from './models/user';
-import {HeaderComponent} from './pages/header/header.component';
-import {TasksComponent} from './pages/tasks/tasks.component';
-import {UserComponent} from './pages/user/user.component';
+import { Component } from '@angular/core';
 
 @Component({
-	selector: 'app-root',
-	imports: [HeaderComponent, UserComponent, TasksComponent],
-	templateUrl: './app.component.html',
-	styleUrl: './app.component.css',
-	animations: [fadeInOut],
+  selector: 'app-root',
+  standalone: true,
+  templateUrl: './app.component.html',
 })
 export class AppComponent {
-	title = 'angular18-course-pj';
-	users = DUMMY_USERS;
-	// selectedUserId = signal<string>(DUMMY_USERS[0].id);
-	selectedUser = signal<User | undefined>(undefined);
-
-	// get selectedUser() {
-	// 	return this.users.find(user => user.id===this.selectedUserId());
-	// }
-
-	onSelectUser(id: string) {
-		console.log('Selected use with id: ' + id);
-		// this.selectedUserId.set(id);
-		this.selectedUser.set(this.users.find(user => user.id === id));
-	}
-
-
+  dummyTrafficData = [
+    {
+      id: 'd1',
+      value: 433,
+    },
+    {
+      id: 'd2',
+      value: 260,
+    },
+    {
+      id: 'd3',
+      value: 290,
+    },
+    {
+      id: 'd4',
+      value: 410,
+    },
+    {
+      id: 'd5',
+      value: 397,
+    },
+    {
+      id: 'd6',
+      value: 488,
+    },
+    {
+      id: 'd47',
+      value: 589,
+    },
+  ];
+  maxTraffic = Math.max(...this.dummyTrafficData.map((data) => data.value));
+  currentStatus = 'online';
 }
