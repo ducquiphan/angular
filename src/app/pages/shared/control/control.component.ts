@@ -1,4 +1,4 @@
-import {Component, input} from '@angular/core';
+import {Component, input, ViewEncapsulation} from '@angular/core';
 import {NzFormControlComponent, NzFormItemComponent, NzFormLabelComponent} from 'ng-zorro-antd/form';
 import {NzColDirective, NzRowDirective} from 'ng-zorro-antd/grid';
 
@@ -13,6 +13,7 @@ import {NzColDirective, NzRowDirective} from 'ng-zorro-antd/grid';
 	],
 	templateUrl: './control.component.html',
 	styleUrl: './control.component.css',
+	encapsulation: ViewEncapsulation.None,
 })
 export class ControlComponent {
 	label = input.required<{ for: string, name: string }>();
