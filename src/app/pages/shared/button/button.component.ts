@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {NzIconDirective} from 'ng-zorro-antd/icon';
 
 @Component({
-	selector: 'button[appButton]', // this is how to create Attribute selector
+	selector: 'button[appButton], a[appButton]', // this is how to create Attribute selector
 	imports: [
 		NzIconDirective,
 	],

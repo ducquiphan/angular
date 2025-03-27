@@ -1,0 +1,6 @@
+<nz-form-item>
+	<nz-form-label [nzFor]="label().for">{{ label().name }}</nz-form-label>
+	<nz-form-control>
+		<ng-content select="input, textarea, nz-textarea-count"></ng-content>
+	</nz-form-control>
+</nz-form-item>
