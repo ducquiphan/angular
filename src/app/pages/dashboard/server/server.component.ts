@@ -1,5 +1,4 @@
 import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
-import * as console from 'node:console';
 
 @Component({
 	selector: 'app-server',
