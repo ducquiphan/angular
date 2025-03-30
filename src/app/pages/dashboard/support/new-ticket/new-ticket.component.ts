@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, ElementRef, ViewChild} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {NzFormModule} from 'ng-zorro-antd/form';
 import {NzIconModule} from 'ng-zorro-antd/icon';
@@ -21,10 +21,12 @@ import {ControlComponent} from '../../../shared/control/control.component';
 	styleUrl: './new-ticket.component.css',
 })
 export class NewTicketComponent {
+	@ViewChild('form') formEl?: ElementRef<HTMLFormElement>;
 
 	onSubmit(title: string, request: string) {
 		console.log('Submitted!');
 		console.log(title);
 		console.log(request);
+		this.formEl?.nativeElement.reset();
 	}
 }
