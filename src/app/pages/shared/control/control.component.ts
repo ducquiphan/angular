@@ -1,4 +1,4 @@
-import {AfterContentInit, Component, contentChild, ElementRef, inject, input, ViewEncapsulation} from '@angular/core';
+import {AfterContentInit, afterNextRender, afterRender, Component, contentChild, ElementRef, inject, input, ViewEncapsulation} from '@angular/core';
 import {NzFormControlComponent, NzFormItemComponent, NzFormLabelComponent} from 'ng-zorro-antd/form';
 import {NzColDirective, NzRowDirective} from 'ng-zorro-antd/grid';
 
@@ -26,6 +26,16 @@ export class ControlComponent implements AfterContentInit {
 	private el = inject(ElementRef);
 	// @ContentChild('input') private control?: ElementRef<HTMLInputElement | HTMLTextAreaElement>;
 	private control = contentChild<ElementRef<HTMLInputElement | HTMLTextAreaElement>>('input');
+
+	constructor() {
+		afterRender(() => {
+			console.log('afterRender');
+		});
+
+		afterNextRender(() => {
+			console.log('afterNextRender');
+		});
+	}
 
 	onClick() {
 		console.log('Clicked!');
