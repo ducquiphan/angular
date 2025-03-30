@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import {Component, signal} from '@angular/core';
+import {Ticket} from '../../../model/ticket.model';
 import {NewTicketComponent} from './new-ticket/new-ticket.component';
 
 @Component({
@@ -10,5 +11,5 @@ import {NewTicketComponent} from './new-ticket/new-ticket.component';
 	styleUrl: './support.component.css',
 })
 export class SupportComponent {
-
+	tickets = signal<Ticket[]>([]);
 }
