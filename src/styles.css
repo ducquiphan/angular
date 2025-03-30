@@ -1,34 +1,35 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
-    font-family: "Open Sans", sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 body {
-    margin: 0;
-    background-color: #c0bdc3;
+  margin: 0;
+  background-color: #edebf0;
+  padding: 3rem;
 }
 
-main {
-    width: 80%;
-    margin: 3rem 10%;
+#inputs {
+  display: flex;
+  gap: 1rem;
 }
 
-#dashboard {
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
-    justify-content: space-between;
-    max-width: 85rem;
-    gap: 1.5rem;
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.15rem;
 }
 
-@media (min-width: 768px) {
-    #dashboard {
-        flex-direction: row;
-    }
+input {
+  display: block;
+  width: 5rem;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 2px;
 }
