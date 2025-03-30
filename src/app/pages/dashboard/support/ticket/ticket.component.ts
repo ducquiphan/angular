@@ -8,7 +8,7 @@ import type {Ticket} from '../../../../model/ticket.model';
 	styleUrl: './ticket.component.css',
 })
 export class TicketComponent {
-	ticket = input.required<Ticket>({});
+	ticket = input.required<Ticket>({alias: 'data'});
 	detailsVisible = signal(false);
 	close = output();
 
