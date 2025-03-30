@@ -1,11 +1,13 @@
 import {Component, signal} from '@angular/core';
 import {Ticket} from '../../../model/ticket.model';
 import {NewTicketComponent} from './new-ticket/new-ticket.component';
+import {TicketComponent} from './ticket/ticket.component';
 
 @Component({
 	selector: 'app-support',
 	imports: [
 		NewTicketComponent,
+		TicketComponent,
 	],
 	templateUrl: './support.component.html',
 	styleUrl: './support.component.css',
