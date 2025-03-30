@@ -1,4 +1,4 @@
-import {Component, contentChild, ElementRef, inject, input, ViewEncapsulation} from '@angular/core';
+import {AfterContentInit, Component, contentChild, ElementRef, inject, input, ViewEncapsulation} from '@angular/core';
 import {NzFormControlComponent, NzFormItemComponent, NzFormLabelComponent} from 'ng-zorro-antd/form';
 import {NzColDirective, NzRowDirective} from 'ng-zorro-antd/grid';
 
@@ -19,19 +19,23 @@ import {NzColDirective, NzRowDirective} from 'ng-zorro-antd/grid';
 		'(click)': 'onClick()',
 	}, // This is the preferred way of host binding and listening
 })
-export class ControlComponent {
+export class ControlComponent implements AfterContentInit {
 	label = input.required<{ for: string, name: string }>();
 	// @HostBinding('class') className = 'control';
 	// @HostListener('click')
 	private el = inject(ElementRef);
 	// @ContentChild('input') private control?: ElementRef<HTMLInputElement | HTMLTextAreaElement>;
-	private control = contentChild.required<ElementRef<HTMLInputElement | HTMLTextAreaElement>>('input');
+	private control = contentChild<ElementRef<HTMLInputElement | HTMLTextAreaElement>>('input');
 
 	onClick() {
 		console.log('Clicked!');
 		console.log(this.el);
 		// console.log(this.control);
 		console.log(this.control());
+	}
+
+	ngAfterContentInit(): void {
+		// Access to content child variable
 	}
 
 
