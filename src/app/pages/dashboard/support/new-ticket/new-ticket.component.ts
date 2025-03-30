@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, model, OnInit, output, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, output, signal, ViewChild} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {NzFormModule} from 'ng-zorro-antd/form';
 import {NzIconModule} from 'ng-zorro-antd/icon';
@@ -24,8 +24,8 @@ import {ControlComponent} from '../../../shared/control/control.component';
 export class NewTicketComponent implements OnInit, AfterViewInit {
 	@ViewChild('form') formEl?: ElementRef<HTMLFormElement>;
 	add = output<Ticket>();
-	enteredTitle = model('');
-	enteredRequest = model('');
+	enteredTitle = signal('');
+	enteredRequest = signal('');
 
 	// private formEl = viewChild<ElementRef<HTMLFormElement>>('form');
 
