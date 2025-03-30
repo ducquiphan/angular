@@ -1,11 +1,24 @@
-import { Component } from '@angular/core';
+import {Component, input, signal} from '@angular/core';
+import type {Ticket} from '../../../../model/ticket.model';
 
 @Component({
-  selector: 'app-ticket',
-  imports: [],
-  templateUrl: './ticket.component.html',
-  styleUrl: './ticket.component.css'
+	selector: 'app-ticket',
+	imports: [],
+	templateUrl: './ticket.component.html',
+	styleUrl: './ticket.component.css',
 })
 export class TicketComponent {
+	ticket = input.required<Ticket>();
+	detailsVisible = signal(false);
 
+	onUpdateStatus() {
+
+	}
+
+	onToggleDetails() {
+		// this.detailsVisible.set(!this.detailsVisible());
+		this.detailsVisible.update((wasVisible) => {
+			return !wasVisible;
+		});
+	}
 }

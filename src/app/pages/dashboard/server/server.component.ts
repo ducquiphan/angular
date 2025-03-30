@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, DestroyRef, effect, inject, OnInit, signal} from '@angular/core';
+import {AfterViewInit, Component, DestroyRef, inject, OnInit, signal} from '@angular/core';
 
 @Component({
 	selector: 'app-server',
@@ -13,10 +13,10 @@ export class ServerComponent implements OnInit, AfterViewInit {
 	private destroyRef = inject(DestroyRef);
 
 	constructor() {
-		effect(() => {
-			console.log(this.currentStatus());
-		});
-		
+		// effect(() => {
+		// 	console.log(this.currentStatus());
+		// });
+
 	}
 
 	ngOnInit(): void {
