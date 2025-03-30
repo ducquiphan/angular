@@ -21,4 +21,14 @@ export class SupportComponent {
 			return [...oldTickets, newTicket];
 		});
 	}
+
+	onCloseTicket(id: string) {
+		this.tickets.update(oldTickets => {
+			return oldTickets.map(ticket => {
+				if (ticket.id === id) {
+					return {...ticket, status: 'closed'};
+				} else return ticket;
+			});
+		});
+	}
 }
