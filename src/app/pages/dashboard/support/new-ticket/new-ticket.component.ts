@@ -22,9 +22,9 @@ import {ControlComponent} from '../../../shared/control/control.component';
 })
 export class NewTicketComponent {
 
-	onSubmit(titleEl: HTMLInputElement, requestEl: HTMLTextAreaElement) {
-		const enteredTitle = titleEl.value;
-		const enteredRequest = requestEl.value;
+	onSubmit(title: string, request: string) {
 		console.log('Submitted!');
+		console.log(title);
+		console.log(request);
 	}
 }

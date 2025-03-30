@@ -1,4 +1,4 @@
-<form (ngSubmit)="onSubmit(titleInput, requestInput)" nz-form>
+<form (ngSubmit)="onSubmit(titleInput.value, requestInput.value)" nz-form>
 	<app-control [label]="{for: 'title', name: 'Title'}">
 		<input #titleInput id="title" name="title" nz-input type="text">
 	</app-control>
