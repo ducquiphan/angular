@@ -1,5 +1,6 @@
 import {DatePipe, DecimalPipe} from '@angular/common';
 import {Component} from '@angular/core';
+import {SortPipe} from './pipes/sort.pipe';
 import {TemperaturePipe} from './pipes/temperature.pipe';
 
 @Component({
@@ -10,6 +11,7 @@ import {TemperaturePipe} from './pipes/temperature.pipe';
 		DatePipe,
 		TemperaturePipe,
 		DecimalPipe,
+		SortPipe,
 	],
 })
 export class AppComponent {
