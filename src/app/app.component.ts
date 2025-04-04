@@ -16,7 +16,7 @@ import {TemperaturePipe} from './pipes/temperature.pipe';
 })
 export class AppComponent {
 	currentDate = new Date();
-	currentTemperaturs = {
+	currentTemperatures = {
 		berlin: 4.2749812,
 		newYork: 18.1214,
 		paris: 72.1209001,
@@ -28,6 +28,8 @@ export class AppComponent {
 	];
 
 	onReset(index: number) {
-		this.historicTemperatures[index] = 18;
+		const newTemps = [...this.historicTemperatures];
+		newTemps[index] = 18;
+		this.historicTemperatures = newTemps;
 	}
 }
